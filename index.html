@@ -568,19 +568,21 @@ body {
 }
 
 .fechas-title {
-  font-family: "Montserrat", sans-serif;
-  font-size: clamp(1.7rem, 7vw, 2.4rem);
+  font-family: var(--font-script);
+  font-size: clamp(3rem, 7vw, 2.4rem);
   font-weight: 500;
-  color: white;
+  color: #141C4B;
   margin-bottom: 8px;
   position: relative;
   z-index: 1;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.35);
+  
 }
 
 .fechas-title em {
+  font-family: var(--font-script);
   font-style: italic;
-  color: var(--sp-gold);
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.35);
 }
 
 .fechas-subtitle {
@@ -785,9 +787,9 @@ body {
   padding: 12px 10px 8px; min-width: 62px; text-align: center;
 }
 .cd-item.warm { border-color: rgba(201,169,110,.35); background: rgba(201,169,110,.1); }
-.cd-num { font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; color: white; line-height: 1; display: block; }
+.cd-num { font-family: "Montserrat"; font-size: 1.8rem; font-weight: 700; color: white; line-height: 1; display: block; }
 .cd-item.warm .cd-num { color: var(--lp-gold2); }
-.cd-label { font-family: var(--font-body); font-size: .65rem; text-transform: uppercase; letter-spacing: .1em; color: rgba(255,255,255,.5); display: block; margin-top: 3px; }
+.cd-label { font-family: "Montserrat", sans-serif; font-size: .65rem; text-transform: uppercase; letter-spacing: .1em; color: rgba(255,255,255,.5); display: block; margin-top: 3px; }
 
 .fechas-note {
    font-size: 1.4rem;
@@ -1180,7 +1182,7 @@ body {
 
   <div style="position:relative;z-index:2">
     <span class="fechas-eyebrow reveal">Dos Momentos, Una Misma Alegría</span>
-    <h2 class="fechas-title reveal d1">Guarda estas<br><em>Fechas</em></h2>
+    <h2 class="fechas-title reveal d1">Fechas<br><em>Especiales</em></h2>
     <!--<span class="fechas-subtitle reveal d2">🕊️ Bautizo · 🚀 Cumpleaños</span>-->
 
     <!-- THE TWO CARDS SIDE BY SIDE -->
@@ -1199,8 +1201,8 @@ body {
         <div class="fc-divider"></div>
 
         	<div class="fc-hora">⏰ 10:00 AM</div>
-        <div class="fc-lugar" style="font-family:var(--font-display);font-size:.82rem;font-weight:600;color:var(--lp-text);margin-bottom:3px">Parroquia San José</div>
-        <div class="fc-lugar">Calle 12 #5-48<br>Centro, Ciudad</div>
+        <div class="fc-lugar" style="font-family:var(--font-display);font-size:.82rem;font-weight:600;color:var(--lp-text);margin-bottom:3px">Parroquia Nuestra Señora del Perpetuo Socorro</div>
+        <div class="fc-lugar">Cra. 8a #17-20<br>Barrio: Camponuñez</div>
       </div>
 
       <!-- Connector star -->
@@ -1228,9 +1230,9 @@ body {
 
         <div class="fc-divider"></div>
 
-        <div class="fc-hora">🌟 4:00 PM</div>
-        <div class="fc-lugar" style="font-family:var(--font-display);font-size:.82rem;font-weight:600;color:rgba(255,255,255,.85);margin-bottom:3px">Salón El Cosmos</div>
-        <div class="fc-lugar">Carrera 8 #23-16<br>Zona Norte, Ciudad</div>
+        <div class="fc-hora">🌟 2:00 PM</div>
+        <div class="fc-lugar" style="font-family:var(--font-display);font-size:.82rem;font-weight:600;color:rgba(255,255,255,.85);margin-bottom:3px">Hogar Vargas Sanchez</div>
+        <div class="fc-lugar">Calle 9s N°22-19<br>Barrio Santa Isabel</div>
       </div>
     </div><!-- / fechas-duo -->
 
