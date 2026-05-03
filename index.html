@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Santiago Tomás — Bautizo & Cumpleaños</title>
+<title>Jesús Gael — Bautizo Y Cumpleaños</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Dancing+Script:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
@@ -148,6 +148,13 @@ body {
     left: 50%;
     transform: translateX(-50%);
   }
+.scroll-cue.padrinos-btn {
+  	transform: scale(1.2); /* 👈 agranda todo el botón */
+	
+}.scroll-cue.padrinos-btn span {
+  	color: #000000; /* cambia aquí el color */
+	font-size: 1rem; /* ajusta aquí */
+}
 
   #lp-rose img {
     width: 80px;
@@ -160,9 +167,9 @@ body {
   }
 
   .cruz-bautizo img {
-    width: 45px !important;
+    width: 60px !important;
     height: auto !important;
-	  transform: translateY(-10vw) translateX(1vw); 
+	  transform: translateY(-5vw) translateX(1vw); 
   }
 }
 
@@ -365,15 +372,24 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 80px; /* esto lo empuja hacia abajo */
-  font-size: 1.5rem;
-  color: white;
+  margin-top: 50px;
   cursor: pointer;
+	color:white;
+
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+	  transition: transform .2s ease;
+}
+
+.scroll-cue:active {
+  transform: scale(0.96);
 }
 }
 .scroll-cue span {
   font-family: var(--font-script);
-  font-size: 3rem; /* 👈 más grande pero estable */
+  font-size: 5rem; /* 👈 más grande pero estable */
   color: #ffffff;
 	font-weight: 700;
 
@@ -967,6 +983,8 @@ body {
     <span>TÓCAME PARA CONOCER MAS</span>
     <div class="chevron"></div>
   </div>
+		</div>
+	  </div>
 </section>
 
 
@@ -1013,6 +1031,10 @@ body {
 </div>
 <div class="cruz-bautizo">
   <img src="img/cruzBautizo.png" alt="Cruz Bautizo" >
+</div>
+<div class="scroll-cue padrinos-btn">
+  <span>CONOCES FECHAS Y LUGAR AQUÍ</span>
+  <div class="chevron"></div>
 </div>
 </div>
   </div>
@@ -1339,6 +1361,22 @@ function toggleMusic() {
   playing = !playing;
   btn.textContent = playing ? '🔇' : '🎵';
 }
+	document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.querySelector('.padrinos-btn');
+
+  if (btn) {
+    btn.addEventListener('click', () => {
+      const target = document.getElementById('fechas');
+
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  }
+});
 </script>
 </body>
 </html>
