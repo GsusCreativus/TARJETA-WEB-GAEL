@@ -110,24 +110,32 @@ body {
   50%  { transform: translateY(-10px); }
   100% { transform: translateY(0px); }
 }
-	.paloma-principito {
+	/* =========================
+   PRINCIPITO
+========================= */
+.paloma-principito {
   position: absolute;
   right: 20px;
   top: 50px;
+
   animation: levitar 4s ease-in-out infinite;
   will-change: transform;
 }
 
 .paloma-principito img {
-  width: 120px;
+  width: 85px;
   height: auto;
 }
 
+/* =========================
+   CRUZ
+========================= */
 .cruz-bautizo {
   position: absolute;
   left: 20px;
   top: 100px;
-	animation: levitar 4s ease-in-out infinite;
+
+  animation: levitar 4s ease-in-out infinite;
   will-change: transform;
 }
 
@@ -135,26 +143,31 @@ body {
   width: 50px;
   height: auto;
 }
+
+/* =========================
+   BOTÓN PADRINOS
+========================= */
 .scroll-cue.padrinos-btn {
   transform: translateY(15px) scale(1.2);
   transition: all 0.3s ease;
   position: relative;
 }
 
-/* texto */
 .scroll-cue.padrinos-btn span {
   color: #000000;
   font-size: 1rem;
 }
 
-/* opcional: chevron más visible */
 .scroll-cue.padrinos-btn .chevron {
   border-right: 2px solid #000;
   border-bottom: 2px solid #000;
 }
 
-/* MÓVIL (si quieres ajustarlo solo en celular) */
+/* =========================
+   MÓVIL
+========================= */
 @media (max-width: 768px) {
+
   .scroll-cue.padrinos-btn {
     transform: translateY(25px) scale(1.1);
   }
@@ -162,33 +175,13 @@ body {
   .scroll-cue.padrinos-btn span {
     font-size: 0.9rem;
   }
-}
-	
-
-/* ============================================================
-   MOBILE FIX (CORRECTO - FUERA DE SELECTORES)
-============================================================ */
-@media (max-width: 768px) {
 
   #lp-rose {
     position: absolute !important;
     top: 5px;
-    bottom: auto !important;
     left: 50%;
     transform: translateX(-50%);
   }
-}
-
-/* MÓVIL (si quieres ajustarlo solo en celular) */
-@media (max-width: 768px) {
-  .scroll-cue.padrinos-btn {
-    transform: translateY(25px) scale(1.1);
-  }
-
-  .scroll-cue.padrinos-btn span {
-    font-size: 0.9rem;
-  }
-}
 
   #lp-rose img {
     width: 80px;
@@ -196,40 +189,17 @@ body {
 
   .paloma img {
     width: 70px;
-	animation: levitar 4s ease-in-out infinite;
-  	will-change: transform;
-	position: relative;
   }
-
-  .cruz-bautizo img {
-    width: 60px !important;
-    height: auto !important;
-	  transform: translateY(-5vw) translateX(1vw); 
-  }
-}
 
   .paloma-principito {
     top: 80px;
     right: 10px;
-	  transform: translateY(5vw) translateX(5vw);
   }
-	.scroll-cue.padrinos-btn {
-  transform: translateY(-50px) scale(1.2);
-  transition: all 0.3s ease;
-  position: relative;
-}
 
-/* texto */
-.scroll-cue.padrinos-btn span {
-  color: #000000;
-  font-size: 1rem;
-}
-
-/* opcional: chevron más visible */
-.scroll-cue.padrinos-btn .chevron {
-  border-right: 2px solid #000;
-  border-bottom: 2px solid #000;
-}
+  .cruz-bautizo {
+    top: 70px;
+    left: 10px;
+  }
 }
 /* ============================================================
    FIXED UI
@@ -562,42 +532,83 @@ body {
     #edf6fb 0%, #d6eef8 20%,
     #1a2060 55%, #0d1541 80%, #060b24 100%
   );
-  text-align: center; position: relative; overflow: hidden;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  /* 🔥 FUENTE GLOBAL DE LA SECCIÓN */
+  font-family: "Montserrat", sans-serif;
 }
 
-/* Transition horizon stars */
-.fechas-stars { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+/* STARS */
+.fechas-stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
 .fechas-stars .fs {
-  position: absolute; border-radius: 50%; background: white;
+  position: absolute;
+  border-radius: 50%;
+  background: white;
   animation: twinkle linear infinite;
 }
 
+/* TEXTOS SUPERIORES */
 .fechas-eyebrow {
-  font-family: var(--font-script); font-size: 1.05rem;
-  color: rgba(255,255,255,.65); margin-bottom: 10px;
-  display: block; position: relative; z-index: 1;
-}
-.fechas-title {
-  font-family: var(--font-display);
-  font-size: clamp(1.7rem, 7vw, 2.4rem);
-  font-weight: 400; color: white;
-  margin-bottom: 8px; position: relative; z-index: 1;
-}
-.fechas-title em { font-style: italic; color: var(--sp-gold); }
-.fechas-subtitle {
-  font-family: var(--font-body); font-size: .88rem;
-  color: rgba(255,255,255,.55); letter-spacing: .08em; text-transform: uppercase;
-  margin-bottom: 36px; display: block; position: relative; z-index: 1;
+  font-size: 1.05rem;
+  color: rgba(255,255,255,.65);
+  margin-bottom: 10px;
+  display: block;
+  position: relative;
+  z-index: 1;
 }
 
-/* THE TWO DATE CARDS */
+.fechas-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(1.7rem, 7vw, 2.4rem);
+  font-weight: 500;
+  color: white;
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.35);
+}
+
+.fechas-title em {
+  font-style: italic;
+  color: var(--sp-gold);
+}
+
+.fechas-subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-size: .88rem;
+  color: rgba(255,255,255,.55);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-bottom: 36px;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+/* CARDS */
 .fechas-duo {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
   max-width: 440px;
   margin: 0 auto;
-  position: relative; z-index: 2;
+  position: relative;
+  z-index: 2;
+}
+
+/* 🔥 LO IMPORTANTE (TUS CAMPOS DE FECHA) */
+.fc-dia,
+.fc-fecha,
+.fc-mes {
+  font-family: "Montserrat", sans-serif !important;
 }
 
 /* shared card base */
@@ -622,7 +633,7 @@ body {
 
 .fcard-bautizo .fc-icon {
   width: 44px; height: 44px; border-radius: 50%;
-  background: linear-gradient(135deg, rgba(201,169,110,.25), rgba(201,169,110,.1));
+ background: linear-gradient(135deg, #f5e6b3, #d4af37);
   border: 1.5px solid rgba(201,169,110,.4);
   display: flex; align-items: center; justify-content: center;
   font-size: 1.35rem; margin-bottom: 10px;
@@ -647,14 +658,14 @@ body {
   margin: 2px 0;
 }
 .fcard-bautizo .fc-mes {
-  font-family: var(--font-body); font-size: .78rem;
+  font-family: "Montserrat", sans-serif !important; font-size: .78rem;
   text-transform: uppercase; letter-spacing: .12em;
   color: #9a7040; margin-bottom: 8px;
 }
 .fcard-bautizo .fc-hora {
   background: rgba(201,169,110,.18);
   border-radius: 50px; padding: 4px 12px;
-  font-family: var(--font-display); font-size: .82rem;
+  font-family: "Montserrat", sans-serif; font-size: .82rem;
   color: #7a5828; font-weight: 600; margin-bottom: 8px;
 }
 .fcard-bautizo .fc-lugar {
@@ -713,21 +724,25 @@ body {
   position: relative; z-index: 1;
 }
 .fcard-cumple .fc-fecha {
-  font-family: var(--font-display); font-size: 1.9rem;
+  font-family: "Montserrat", sans-serif; font-size: 1.9rem;
   font-weight: 700; color: white; line-height: 1; margin: 2px 0;
   position: relative; z-index: 1;
   text-shadow: 0 0 20px rgba(96,165,250,.6);
 }
 .fcard-cumple .fc-mes {
-  font-family: var(--font-body); font-size: .78rem;
-  text-transform: uppercase; letter-spacing: .12em;
-  color: var(--sp-cyan); margin-bottom: 8px;
-  position: relative; z-index: 1;
+  font-family: "Montserrat", sans-serif !important;
+  font-size: .78rem;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--sp-cyan);
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 1;
 }
 .fcard-cumple .fc-hora {
   background: rgba(96,165,250,.18);
   border-radius: 50px; padding: 4px 12px;
-  font-family: var(--font-display); font-size: .82rem;
+  font-family: "Montserrat", sans-serif; font-size: .82rem;
   color: var(--sp-cyan); font-weight: 600; margin-bottom: 8px;
   position: relative; z-index: 1;
 }
@@ -841,6 +856,7 @@ body {
   height: auto;
   opacity: 0.95;
 	filter: drop-shadow(0 0 12px rgba(255,255,255,0.6));
+	animation: levitar 4s ease-in-out infinite;
 }
 #detalles .eyebrow { color: var(--lp-sky2); }
 #detalles .sec-title { color: var(--lp-text); }
@@ -975,6 +991,67 @@ body {
   animation: floatY 4s ease-in-out infinite;
   opacity: .35;
 }
+/* ============================================================
+   TIPOGRAFÍA GENERAL FECHAS (MONTSERRAT)
+============================================================ */
+#fechas {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* textos normales en Montserrat */
+#fechas .fc-dia,
+#fechas .fc-fecha,
+#fechas .fc-hora,
+#fechas .fc-lugar,
+#fechas .fc-tipo,
+#fechas .fc-mes {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* ============================================================
+   CURSIVA ELEGANTE (FRASES / ENCABEZADOS)
+============================================================ */
+.eyebrow,
+.fechas-eyebrow,
+.quote-final {
+  font-family: var(--font-script) !important;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: .02em;
+}
+
+/* tamaños específicos */
+.eyebrow {
+  font-size: 2rem;
+}
+
+.fechas-eyebrow {
+  font-size: 1.5rem;
+  color: #000000;
+}
+
+/* ============================================================
+   CITA FINAL (PRINCIPITO / FRASE POÉTICA)
+============================================================ */
+.quote-final {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--lp-soft);
+  font-style: italic;
+  max-width: 290px;
+  margin: 44px auto 0;
+}
+
+/* autor o firma si lo usas */
+.quote-final strong {
+  font-family: "Montserrat", sans-serif;
+  font-size: .68rem;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--lp-gold);
+}
 </style>
 </head>
 <body>
@@ -982,9 +1059,7 @@ body {
 <!-- Fixed UI -->
 <button id="music-btn" onclick="toggleMusic()" title="Música">🎵</button>
 <audio id="bg-music" loop></audio>
-<a id="wa-float" href="https://wa.me/573000000000?text=Hola%2C%20confirmo%20mi%20asistencia" target="_blank" rel="noopener">
-  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</a>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <!-- ============================================================
      S1 — PORTADA
@@ -1102,9 +1177,9 @@ body {
   <div class="fechas-stars" id="fechas-stars"></div>
 
   <div style="position:relative;z-index:2">
-    <span class="fechas-eyebrow reveal">dos momentos, una misma alegría</span>
+    <span class="fechas-eyebrow reveal">Dos Momentos, Una Misma Alegría</span>
     <h2 class="fechas-title reveal d1">Guarda estas<br><em>Fechas</em></h2>
-    <span class="fechas-subtitle reveal d2">🕊️ Bautizo · 🚀 Cumpleaños</span>
+    <!--<span class="fechas-subtitle reveal d2">🕊️ Bautizo · 🚀 Cumpleaños</span>-->
 
     <!-- THE TWO CARDS SIDE BY SIDE -->
     <div class="fechas-duo reveal d3" style="position:relative">
@@ -1113,15 +1188,15 @@ body {
       <div class="fcard fcard-bautizo">
         <div class="fc-icon">🕊️</div>
         <div class="fc-tipo">Bautizo</div>
-        <div class="fc-name">Santiago<br>Tomás</div>
+        <div class="fc-name">Jesús Gael<br>Vargas Sánchez</div>
 
-        <div class="fc-dia">Sábado</div>
-        <div class="fc-fecha">20</div>
-        <div class="fc-mes">Diciembre · 2025</div>
+        <div class="fc-dia">DOMINGO</div>
+        <div class="fc-fecha">24</div>
+        <div class="fc-mes">Mayo</div>
 
         <div class="fc-divider"></div>
 
-        <div class="fc-hora">⏰ 10:00 AM</div>
+        	<div class="fc-hora">⏰ 10:00 AM</div>
         <div class="fc-lugar" style="font-family:var(--font-display);font-size:.82rem;font-weight:600;color:var(--lp-text);margin-bottom:3px">Parroquia San José</div>
         <div class="fc-lugar">Calle 12 #5-48<br>Centro, Ciudad</div>
       </div>
@@ -1143,11 +1218,11 @@ body {
 
         <div class="fc-icon">🚀</div>
         <div class="fc-tipo">Cumpleaños</div>
-        <div class="fc-name">Santiago<br>Tomás</div>
+        <div class="fc-name">Jesús Gael<br>Vargas Sánchez</div>
 
         <div class="fc-dia">Domingo</div>
-        <div class="fc-fecha">21</div>
-        <div class="fc-mes">Diciembre · 2025</div>
+        <div class="fc-fecha">24</div>
+        <div class="fc-mes">Mayo</div>
 
         <div class="fc-divider"></div>
 
