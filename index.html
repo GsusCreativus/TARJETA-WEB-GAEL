@@ -135,6 +135,35 @@ body {
   width: 50px;
   height: auto;
 }
+.scroll-cue.padrinos-btn {
+  transform: translateY(15px) scale(1.2);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* texto */
+.scroll-cue.padrinos-btn span {
+  color: #000000;
+  font-size: 1rem;
+}
+
+/* opcional: chevron más visible */
+.scroll-cue.padrinos-btn .chevron {
+  border-right: 2px solid #000;
+  border-bottom: 2px solid #000;
+}
+
+/* MÓVIL (si quieres ajustarlo solo en celular) */
+@media (max-width: 768px) {
+  .scroll-cue.padrinos-btn {
+    transform: translateY(25px) scale(1.1);
+  }
+
+  .scroll-cue.padrinos-btn span {
+    font-size: 0.9rem;
+  }
+}
+	
 
 /* ============================================================
    MOBILE FIX (CORRECTO - FUERA DE SELECTORES)
@@ -148,12 +177,17 @@ body {
     left: 50%;
     transform: translateX(-50%);
   }
-.scroll-cue.padrinos-btn {
-  	transform: scale(1.2); /* 👈 agranda todo el botón */
-	
-}.scroll-cue.padrinos-btn span {
-  	color: #000000; /* cambia aquí el color */
-	font-size: 1rem; /* ajusta aquí */
+}
+
+/* MÓVIL (si quieres ajustarlo solo en celular) */
+@media (max-width: 768px) {
+  .scroll-cue.padrinos-btn {
+    transform: translateY(25px) scale(1.1);
+  }
+
+  .scroll-cue.padrinos-btn span {
+    font-size: 0.9rem;
+  }
 }
 
   #lp-rose img {
@@ -162,8 +196,9 @@ body {
 
   .paloma img {
     width: 70px;
-	  animation: levitar 4s ease-in-out infinite;
-  will-change: transform;
+	animation: levitar 4s ease-in-out infinite;
+  	will-change: transform;
+	position: relative;
   }
 
   .cruz-bautizo img {
@@ -178,6 +213,23 @@ body {
     right: 10px;
 	  transform: translateY(5vw) translateX(5vw);
   }
+	.scroll-cue.padrinos-btn {
+  transform: translateY(-50px) scale(1.2);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* texto */
+.scroll-cue.padrinos-btn span {
+  color: #000000;
+  font-size: 1rem;
+}
+
+/* opcional: chevron más visible */
+.scroll-cue.padrinos-btn .chevron {
+  border-right: 2px solid #000;
+  border-bottom: 2px solid #000;
+}
 }
 /* ============================================================
    FIXED UI
@@ -781,7 +833,7 @@ body {
 }
 	.paloma {
   text-align: center;
-  margin-top: 40px;
+  margin-top: 8px;
 }
 
 .paloma img {
