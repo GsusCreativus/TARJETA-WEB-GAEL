@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Santiago Tomás — Bautizo & Cumpleaños</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Dancing+Script:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   VARIABLES
+============================================================ */
+:root {
+  /* LP palette */
+  --lp-sky:    #c5dff0;
+  --lp-sky2:   #a8ccdf;
+  --lp-gold:   #c9a96e;
+  --lp-gold2:  #e8d5a3;
+  --lp-beige:  #f5ede0;
+  --lp-cream:  #fdf8f2;
+  --lp-warm:   #eddcc8;
+  --lp-text:   #4a3f35;
+  --lp-soft:   #7a6f65;
+
+  /* Astronaut / cosmos palette */
+  --sp-deep:   #0a0e2e;
+  --sp-navy:   #111840;
+  --sp-indigo: #1a2560;
+  --sp-blue:   #1e3a8a;
+  --sp-nebula: #2d1b69;
+  --sp-glow:   #60a5fa;
+  --sp-cyan:   #7dd3fc;
+  --sp-silver: #e2e8f0;
+  --sp-gold:   #fbbf24;
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-script:  'Dancing Script', cursive;
+  --font-body:    'Cormorant Garamond', Georgia, serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  background: var(--lp-cream);
+}
+
+/* ============================================================
+   SCROLL REVEAL
+============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .75s ease, transform .75s ease;
+}
+.reveal.up    { transform: translateY(28px); }
+.reveal.left  { transform: translateX(-28px); }
+.reveal.right { transform: translateX(28px); }
+.reveal.scale { transform: scale(.93); }
+.reveal.visible { opacity: 1 !important; transform: none !important; }
+.d1 { transition-delay: .1s; }
+.d2 { transition-delay: .22s; }
+.d3 { transition-delay: .36s; }
+.d4 { transition-delay: .5s; }
+.d5 { transition-delay: .64s; }
+
+/* ============================================================
+   ANIMATIONS
+============================================================ */
+@keyframes floatY {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+@keyframes twinkle {
+  0%,100% { opacity: .15; transform: scale(.8); }
+  50%      { opacity: 1;   transform: scale(1.2); }
+}
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(32px) rotate(0deg); }
+  to   { transform: rotate(360deg) translateX(32px) rotate(-360deg); }
+}
+@keyframes rocketFly {
+  0%   { transform: translateY(0) rotate(-30deg); }
+  40%  { transform: translateY(-18px) rotate(-30deg); }
+  60%  { transform: translateY(-10px) rotate(-30deg); }
+  100% { transform: translateY(0) rotate(-30deg); }
+}
+@keyframes pulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(96,165,250,.4); }
+  50%      { box-shadow: 0 0 0 14px rgba(96,165,250,0); }
+}
+@keyframes waPulse {
+  0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,.4); }
+  50%      { box-shadow: 0 4px 38px rgba(37,211,102,.75); }
+}
+@keyframes shootingStar {
+  0%   { transform: translateX(0) translateY(0) rotate(20deg); opacity: 1; }
+  100% { transform: translateX(160px) translateY(80px) rotate(20deg); opacity: 0; }
+}
+@keyframes nebulaPulse {
+  0%,100% { opacity: .18; }
+  50%      { opacity: .32; }
+}
+@media (max-width: 768px) {
+  #lp-rose {
+    position: absolute !important;
+   top: 5px; /* más arriba en móvil */
+    bottom: auto !important; /* clave: elimina el bottom */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  #lp-rose img {
+    width: 80px;
+  }
+}
+/* ============================================================
+   FIXED UI
+============================================================ */
+#music-btn {
+  position: fixed; top: 14px; right: 14px; z-index: 9999;
+  width: 42px; height: 42px; border-radius: 50%;
+  border: 1.5px solid rgba(201,169,110,.5);
+  background: rgba(255,255,255,.88); backdrop-filter: blur(8px);
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  font-size: 17px; box-shadow: 0 2px 12px rgba(0,0,0,.12);
+  transition: transform .2s;
+}
+#music-btn:hover { transform: scale(1.1); }
+
+#wa-float {
+  position: fixed; bottom: 22px; right: 14px; z-index: 9999;
+  width: 52px; height: 52px; border-radius: 50%;
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none;
+  animation: waPulse 2.5s ease-in-out infinite;
+  transition: transform .2s;
+}
+#wa-float:hover { transform: scale(1.12); }
+#wa-float svg { width: 26px; height: 26px; fill: white; }
+
+/* ============================================================
+   SECTION 1 — PORTADA DUAL (LP + COSMOS)
+============================================================ */
+#portada {
+  min-height: 100vh; /* 👈 más compatible */
+  position: relative;
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+}
+
+/* Cosmos background (upper portion) */
+#portada-cosmos {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    to bottom,
+    #060b24 0%, #0d1541 18%, #111840 36%,
+    #1a2060 52%, #2a1650 62%,
+    #4a3060 72%, #8a6040 82%,
+    #c9954a 90%, #f5ede0 100%
+  );
+  z-index: 0;
+}
+
+/* Stars field */
+.star-field { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+.star-dot {
+  position: absolute; border-radius: 50%; background: white;
+  animation: twinkle linear infinite;
+}
+
+/* Nebula blobs */
+.nebula {
+  position: absolute; border-radius: 50%; filter: blur(40px);
+  animation: nebulaPulse 5s ease-in-out infinite;
+  pointer-events: none; z-index: 1;
+}
+
+/* Shooting star */
+.shooting {
+  position: absolute; width: 60px; height: 1.5px;
+  background: linear-gradient(90deg, transparent, white);
+  border-radius: 2px; z-index: 2; pointer-events: none;
+  animation: shootingStar 3.5s ease-in infinite;
+}
+
+/* Horizon line planet */
+
+#lp-rose {
+  position: absolute;
+  top: 10px; /* súbelo aquí */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  animation: flotar 4s ease-in-out infinite;
+}
+
+#lp-rose img {
+  width: 120px; /* ajusta tamaño */
+  height: auto;
+}
+
+#lp-rose img {
+  width: 200px; /* ajusta tamaño */
+  height: auto;
+  opacity: 0.9;
+	 filter: drop-shadow(0 5px 10px rgba(0,0,0,0.4));
+}
+
+/* Astronaut floating */
+#astronaut {
+  position: absolute; top: 12%; right: 8%;
+  z-index: 4; font-size: 2.6rem;
+  animation: floatY 5s ease-in-out infinite;
+}
+
+/* Moon */
+#moon {
+  position: absolute; top: 8%; left: 14%;
+  z-index: 2; width: 44px; height: 44px; border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #f8f0d8 0%, #e8d8a8 50%, #c8b878 100%);
+  box-shadow: inset -6px -4px 12px rgba(0,0,0,.25), 0 0 20px rgba(248,240,216,.3);
+  animation: floatY 6s ease-in-out infinite;
+}
+
+/* Portada text */
+.portada-wrap {
+  position: relative; z-index: 5;
+  text-align: center;
+  padding: 0 24px;
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 80px;
+}
+	.portada {
+  position: relative;
+  min-height: 100vh;
+}
+.portada-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,.12); backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: 50px; padding: 5px 16px;
+  font-family: var(--font-body);
+  font-size: .72rem; letter-spacing: .16em; text-transform: uppercase;
+  color: rgba(255,255,255,.85);
+  margin-bottom: 14px;
+  opacity: 0; animation: fadeUp .8s ease .2s forwards;
+}
+.portada-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 10vw, 3.5rem);
+  font-weight: 700; line-height: .95;
+  letter-spacing: -.02em;
+  color: white;
+  text-shadow: 0 4px 24px rgba(0,0,0,.5);
+  opacity: 0; animation: fadeUp .9s ease .45s forwards;
+}
+.portada-title .italic-gold {
+  font-style: italic; color: var(--sp-gold);
+  text-shadow: 0 0 30px rgba(251,191,36,.4);
+}
+.portada-name {
+  margin: 16px auto 0;
+  display: inline-block;
+  opacity: 0; animation: fadeUp .9s ease .7s forwards;
+}
+.portada-name-inner {
+  background: none; /* 👈 elimina el fondo */
+  border-top: none; /* opcional */
+  border-bottom: none; /* opcional */
+
+  padding: 12px 34px;
+  font-family: var(--font-script);
+   font-size: 60px;
+  color: #ffffff;
+  letter-spacing: .08em;
+
+  text-shadow: 
+    0 0 12px rgba(255,255,255,1),
+    0 0 24px rgba(255,255,255,.8),
+    0 0 40px rgba(96,165,250,.7);
+}
+	.apellido {
+  display: block;
+  font-size: 0.6em; /* más pequeño que el nombre */
+  letter-spacing: .1em;
+  opacity: 0.85;
+}
+.portada-subtitle {
+  margin-top: 16px;
+  font-family: var(--font-script);
+  font-size: 1.4rem;
+  color: #ffffff; /* 👈 blanco */
+
+  /* 🔥 esto es lo importante */
+  text-shadow: 
+    0 0 8px rgba(255,255,255,.8),
+    0 0 16px rgba(255,255,255,.6),
+    0 0 30px rgba(96,165,250,.6); /* toque azul espacial */
+
+  letter-spacing: .04em;
+}
+.scroll-cue {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 80px; /* esto lo empuja hacia abajo */
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+}
+}
+.scroll-cue span {
+  font-family: var(--font-script);
+  font-size: 3rem; /* 👈 más grande pero estable */
+  color: #ffffff;
+	font-weight: 700;
+
+  text-shadow: 
+    0 0 6px rgba(255,255,255,.7),
+    0 0 12px rgba(96,165,250,.5);
+
+  letter-spacing: .05em;
+  line-height: 1;
+}
+	.scroll-cue span {
+  animation: pulseText 2s ease-in-out infinite;
+}
+
+@keyframes pulseText {
+  0%,100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+.scroll-cue .chevron {
+  width: 20px; height: 20px;
+  border-right: 1.5px solid rgba(255,255,255,.45);
+  border-bottom: 1.5px solid rgba(255,255,255,.45);
+  transform: rotate(45deg);
+  animation: bounce 1.5s ease-in-out infinite;
+}
+@keyframes bounce { 0%,100%{transform:rotate(45deg) translateY(0)} 50%{transform:rotate(45deg) translateY(5px)} }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   SECTION COMMON UTILITIES
+============================================================ */
+.ornament {
+  display: flex; align-items: center; justify-content: flex-start; gap: 10px; margin-bottom: 18px;
+}
+.ornament .ln { height: 1px; width: 44px; }
+.ornament .ln.warm { background: linear-gradient(90deg, transparent, var(--lp-gold)); }
+.ornament .ln.warm.r { background: linear-gradient(90deg, var(--lp-gold), transparent); }
+.ornament .ln.cool { background: linear-gradient(90deg, transparent, var(--sp-glow)); }
+.ornament .ln.cool.r { background: linear-gradient(90deg, var(--sp-glow), transparent); }
+.ornament .dot { width: 6px; height: 6px; border-radius: 50%; }
+.ornament .dot.warm { background: var(--lp-gold); }
+.ornament .dot.cool { background: var(--sp-glow); }
+
+.eyebrow {
+  font-family: var(--font-script); font-size: 1.05rem; display: block; margin-bottom: 8px;
+}
+.sec-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 7.5vw, 2.5rem);
+  font-weight: 400; line-height: 1.15; margin-bottom: 20px;
+}
+
+/* ============================================================
+   SECTION 2 — PADRINOS (LP theme)
+============================================================ */
+#padrinos {
+  padding: 64px 24px 60px;
+  background: linear-gradient(180deg, var(--lp-cream) 0%, #edf6fb 100%);
+  text-align: center; position: relative; overflow: hidden;
+}
+#padrinos .eyebrow { color: var(--lp-sky2); }
+#padrinos .sec-title { color: var(--lp-text); }
+#padrinos .sec-title em { font-style: italic; color: #7aaec8; }
+
+.padrinos-text {
+  font-size: 1.05rem; line-height: 1.75; color: var(--lp-soft);
+  max-width: 320px; margin: 0 auto 24px; font-weight: 300;
+}
+
+.padrinos-chips {
+  display: flex; flex-direction: column; gap: 10px;
+  max-width: 280px; margin: 0 auto;
+}
+.pchip {
+  background: white; border: 1px solid rgba(201,169,110,.35);
+  border-radius: 50px; padding: 11px 26px;
+  font-family: var(--font-script); font-size: 1.3rem; color: var(--lp-gold);
+  box-shadow: 0 2px 14px rgba(201,169,110,.15);
+  position: relative; overflow: hidden;
+}
+.pchip .role {
+  font-family: var(--font-body); font-size: .7rem;
+  text-transform: uppercase; letter-spacing: .12em;
+  color: var(--lp-soft); display: block; margin-bottom: 1px;
+}
+
+/* floating LP deco */
+.lp-deco {
+  position: absolute; pointer-events: none;
+  font-size: 1.8rem; opacity: .25;
+  animation: floatY 4s ease-in-out infinite;
+}
+
+/* stars bg LP */
+.stars-lp { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.stars-lp svg {
+  position: absolute; fill: var(--lp-gold); opacity: .2;
+  animation: twinkle linear infinite;
+}
+
+/* ============================================================
+   SECTION 3 — LAS DOS FECHAS (DUAL CARDS SIDE BY SIDE)
+============================================================ */
+#fechas {
+  padding: 64px 16px 72px;
+  background: linear-gradient(160deg,
+    #edf6fb 0%, #d6eef8 20%,
+    #1a2060 55%, #0d1541 80%, #060b24 100%
+  );
+  text-align: center; position: relative; overflow: hidden;
+}
+
+/* Transition horizon stars */
+.fechas-stars { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.fechas-stars .fs {
+  position: absolute; border-radius: 50%; background: white;
+  animation: twinkle linear infinite;
+}
+
+.fechas-eyebrow {
+  font-family: var(--font-script); font-size: 1.05rem;
+  color: rgba(255,255,255,.65); margin-bottom: 10px;
+  display: block; position: relative; z-index: 1;
+}
+.fechas-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 7vw, 2.4rem);
+  font-weight: 400; color: white;
+  margin-bottom: 8px; position: relative; z-index: 1;
+}
+.fechas-title em { font-style: italic; color: var(--sp-gold); }
+.fechas-subtitle {
+  font-family: var(--font-body); font-size: .88rem;
+  color: rgba(255,255,255,.55); letter-spacing: .08em; text-transform: uppercase;
+  margin-bottom: 36px; display: block; position: relative; z-index: 1;
+}
+
+/* THE TWO DATE CARDS */
+.fechas-duo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  max-width: 440px;
+  margin: 0 auto;
+  position: relative; z-index: 2;
+}
+
+/* shared card base */
+.fcard {
+  border-radius: 24px; padding: 20px 14px 18px;
+  position: relative; overflow: hidden;
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center;
+}
+
+/* --- Bautizo card — LP warm theme --- */
+.fcard-bautizo {
+  background: linear-gradient(155deg, #fdf8f2 0%, #f5ede0 40%, #e8d5a3 100%);
+  border: 1.5px solid rgba(201,169,110,.45);
+  box-shadow: 0 8px 30px rgba(201,169,110,.25);
+}
+.fcard-bautizo::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, #c9a96e, #e8d5a3, #c9a96e);
+}
+
+.fcard-bautizo .fc-icon {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: linear-gradient(135deg, rgba(201,169,110,.25), rgba(201,169,110,.1));
+  border: 1.5px solid rgba(201,169,110,.4);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.35rem; margin-bottom: 10px;
+}
+.fcard-bautizo .fc-tipo {
+  font-family: var(--font-body); font-size: .65rem;
+  text-transform: uppercase; letter-spacing: .14em;
+  color: #9a7040; margin-bottom: 6px; font-weight: 600;
+}
+.fcard-bautizo .fc-name {
+  font-family: var(--font-script); font-size: 1.4rem;
+  color: var(--lp-gold); line-height: 1.1; margin-bottom: 10px;
+}
+.fcard-bautizo .fc-dia {
+  font-family: var(--font-display); font-size: .9rem;
+  font-weight: 700; color: var(--lp-text); letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.fcard-bautizo .fc-fecha {
+  font-family: var(--font-display); font-size: 1.9rem;
+  font-weight: 700; color: var(--lp-text); line-height: 1;
+  margin: 2px 0;
+}
+.fcard-bautizo .fc-mes {
+  font-family: var(--font-body); font-size: .78rem;
+  text-transform: uppercase; letter-spacing: .12em;
+  color: #9a7040; margin-bottom: 8px;
+}
+.fcard-bautizo .fc-hora {
+  background: rgba(201,169,110,.18);
+  border-radius: 50px; padding: 4px 12px;
+  font-family: var(--font-display); font-size: .82rem;
+  color: #7a5828; font-weight: 600; margin-bottom: 8px;
+}
+.fcard-bautizo .fc-lugar {
+  font-family: var(--font-body); font-size: .8rem;
+  color: var(--lp-soft); line-height: 1.4;
+}
+.fcard-bautizo .fc-divider {
+  width: 32px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--lp-gold), transparent);
+  margin: 8px auto;
+}
+
+/* --- Cumpleaños card — Astronaut space theme --- */
+.fcard-cumple {
+  background: linear-gradient(155deg, #111840 0%, #1a2560 45%, #2d1b69 100%);
+  border: 1.5px solid rgba(96,165,250,.3);
+  box-shadow: 0 8px 30px rgba(10,14,46,.6), 0 0 40px rgba(96,165,250,.1);
+}
+.fcard-cumple::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, #3b82f6, #7dd3fc, #60a5fa);
+}
+
+/* mini stars in cumple card */
+.fcard-cumple .card-stars { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.fcard-cumple .card-stars span {
+  position: absolute; border-radius: 50%; background: white;
+  animation: twinkle linear infinite;
+}
+
+.fcard-cumple .fc-icon {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(96,165,250,.15);
+  border: 1.5px solid rgba(96,165,250,.35);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.35rem; margin-bottom: 10px;
+  position: relative; z-index: 1;
+  animation: pulse 2.5s ease-in-out infinite;
+}
+.fcard-cumple .fc-tipo {
+  font-family: var(--font-body); font-size: .65rem;
+  text-transform: uppercase; letter-spacing: .14em;
+  color: var(--sp-cyan); margin-bottom: 6px; font-weight: 600;
+  position: relative; z-index: 1;
+}
+.fcard-cumple .fc-name {
+  font-family: var(--font-script); font-size: 1.4rem;
+  color: var(--sp-gold); line-height: 1.1; margin-bottom: 10px;
+  position: relative; z-index: 1;
+}
+.fcard-cumple .fc-dia {
+  font-family: var(--font-display); font-size: .9rem;
+  font-weight: 700; color: rgba(255,255,255,.7);
+  text-transform: uppercase; letter-spacing: .04em;
+  position: relative; z-index: 1;
+}
+.fcard-cumple .fc-fecha {
+  font-family: var(--font-display); font-size: 1.9rem;
+  font-weight: 700; color: white; line-height: 1; margin: 2px 0;
+  position: relative; z-index: 1;
+  text-shadow: 0 0 20px rgba(96,165,250,.6);
+}
+.fcard-cumple .fc-mes {
+  font-family: var(--font-body); font-size: .78rem;
+  text-transform: uppercase; letter-spacing: .12em;
+  color: var(--sp-cyan); margin-bottom: 8px;
+  position: relative; z-index: 1;
+}
+.fcard-cumple .fc-hora {
+  background: rgba(96,165,250,.18);
+  border-radius: 50px; padding: 4px 12px;
+  font-family: var(--font-display); font-size: .82rem;
+  color: var(--sp-cyan); font-weight: 600; margin-bottom: 8px;
+  position: relative; z-index: 1;
+}
+.fcard-cumple .fc-lugar {
+  font-family: var(--font-body); font-size: .8rem;
+  color: rgba(255,255,255,.5); line-height: 1.4;
+  position: relative; z-index: 1;
+}
+.fcard-cumple .fc-divider {
+  width: 32px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--sp-glow), transparent);
+  margin: 8px auto; position: relative; z-index: 1;
+}
+
+/* connector between cards */
+.fechas-connector {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 10; width: 28px; height: 28px;
+  background: linear-gradient(135deg, var(--lp-gold), var(--sp-glow));
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .9rem;
+  box-shadow: 0 0 14px rgba(201,169,110,.5), 0 0 14px rgba(96,165,250,.5);
+  animation: pulse 2.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* countdown strip */
+.countdown-strip {
+  display: flex; gap: 8px; justify-content: center;
+  margin-top: 28px; flex-wrap: wrap;
+  position: relative; z-index: 2;
+}
+.cd-item {
+  background: rgba(255,255,255,.08); backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,.15); border-radius: 14px;
+  padding: 12px 10px 8px; min-width: 62px; text-align: center;
+}
+.cd-item.warm { border-color: rgba(201,169,110,.35); background: rgba(201,169,110,.1); }
+.cd-num { font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; color: white; line-height: 1; display: block; }
+.cd-item.warm .cd-num { color: var(--lp-gold2); }
+.cd-label { font-family: var(--font-body); font-size: .65rem; text-transform: uppercase; letter-spacing: .1em; color: rgba(255,255,255,.5); display: block; margin-top: 3px; }
+
+.fechas-note {
+   font-size: 1.4rem;
+  color: white;
+  text-shadow: 0 0 10px rgba(96,165,250,.6);
+}
+
+/* ============================================================
+   SECTION 4 — GALERÍA (HYBRID)
+============================================================ */
+#galeria {
+  padding: 64px 20px;
+  background: linear-gradient(180deg, #060b24 0%, #0d1541 30%, #1a2060 60%, var(--lp-beige) 100%);
+  text-align: center; position: relative; overflow: hidden;
+}
+#galeria .eyebrow { color: var(--sp-cyan); }
+#galeria .sec-title { color: white; }
+#galeria .sec-title em { font-style: italic; color: var(--sp-gold); }
+
+.gallery-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+  max-width: 400px; margin: 24px auto 0;
+}
+.gallery-grid .card-main { grid-column: 1 / -1; }
+
+.gcard {
+  border-radius: 18px; overflow: hidden;
+  position: relative; aspect-ratio: 4/3;
+  background: #1a2060;
+  box-shadow: 0 4px 20px rgba(0,0,0,.4);
+  transform: scale(.97);
+  transition: transform .4s, box-shadow .4s;
+}
+.gcard:hover { transform: scale(1.02); box-shadow: 0 8px 36px rgba(0,0,0,.5); }
+.gcard.card-main { aspect-ratio: 16/9; }
+.gcard img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.gcard .g-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(10,14,46,.5), transparent 60%);
+  opacity: 0; transition: opacity .3s;
+}
+.gcard:hover .g-overlay { opacity: 1; }
+.img-ph {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 4px;
+  background: linear-gradient(135deg, #1a2560, #2d1b69);
+  font-size: 2.2rem;
+}
+.img-ph span {
+  font-family: var(--font-script); font-size: .75rem; color: rgba(255,255,255,.4);
+}
+
+/* ============================================================
+   SECTION 5 — DETALLES (HYBRID SPLIT CARDS)
+============================================================ */
+#detalles {
+  padding: 64px 18px 70px;
+  background: linear-gradient(180deg, var(--lp-beige) 0%, var(--lp-cream) 100%);
+  text-align: center; position: relative; overflow: hidden;
+}
+#detalles .eyebrow { color: var(--lp-sky2); }
+#detalles .sec-title { color: var(--lp-text); }
+#detalles .sec-title em { font-style: italic; color: #7aaec8; }
+
+.detalles-grid {
+  display: flex; flex-direction: column; gap: 14px;
+  max-width: 380px; margin: 24px auto 0;
+}
+
+.dcard {
+  border-radius: 22px; padding: 24px 20px;
+  text-align: left; position: relative; overflow: hidden;
+}
+.dcard-lp {
+  background: white;
+  border: 1px solid rgba(184,212,232,.4);
+  box-shadow: 0 4px 22px rgba(74,63,53,.1);
+}
+.dcard-lp::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--lp-sky), var(--lp-gold2));
+}
+.dcard-sp {
+  background: linear-gradient(155deg, #111840, #1a2560);
+  border: 1px solid rgba(96,165,250,.2);
+  box-shadow: 0 4px 22px rgba(10,14,46,.4);
+}
+.dcard-sp::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, #3b82f6, #7dd3fc);
+}
+
+.dcard-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  border-radius: 50px; padding: 4px 12px;
+  font-family: var(--font-body); font-size: .65rem;
+  text-transform: uppercase; letter-spacing: .13em; font-weight: 600;
+  margin-bottom: 12px;
+}
+.dcard-lp .dcard-badge {
+  background: rgba(184,212,232,.25); color: #5a9ab8;
+}
+.dcard-sp .dcard-badge {
+  background: rgba(96,165,250,.15); color: var(--sp-cyan);
+}
+
+.dcard-hora {
+  font-family: var(--font-display); font-size: 2rem;
+  font-weight: 700; line-height: 1; margin-bottom: 4px;
+}
+.dcard-lp .dcard-hora { color: var(--lp-text); }
+.dcard-sp .dcard-hora { color: white; text-shadow: 0 0 16px rgba(96,165,250,.5); }
+.dcard-hora em {
+  font-style: normal; font-size: .9rem; font-weight: 400;
+}
+.dcard-lp .dcard-hora em { color: var(--lp-soft); }
+.dcard-sp .dcard-hora em { color: rgba(255,255,255,.5); }
+
+.dcard-lugar {
+  font-family: var(--font-display); font-size: 1rem; font-weight: 600; margin-top: 10px;
+}
+.dcard-lp .dcard-lugar { color: var(--lp-text); }
+.dcard-sp .dcard-lugar { color: rgba(255,255,255,.9); }
+
+.dcard-dir {
+  font-family: var(--font-body); font-size: .9rem; line-height: 1.5; margin-top: 3px; margin-bottom: 14px;
+}
+.dcard-lp .dcard-dir { color: var(--lp-soft); }
+.dcard-sp .dcard-dir { color: rgba(255,255,255,.45); }
+
+.btn-loc {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 18px; border-radius: 50px; font-family: var(--font-body);
+  font-size: .82rem; text-decoration: none; cursor: pointer;
+  transition: background .25s, color .25s, transform .2s; border: 1.5px solid;
+}
+.btn-loc:hover { transform: translateY(-2px); }
+.dcard-lp .btn-loc { border-color: #7aaec8; color: #5a9ab8; background: transparent; }
+.dcard-lp .btn-loc:hover { background: #7aaec8; color: white; }
+.dcard-sp .btn-loc { border-color: rgba(96,165,250,.5); color: var(--sp-cyan); background: transparent; }
+.dcard-sp .btn-loc:hover { background: rgba(96,165,250,.2); }
+.btn-loc svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+/* ============================================================
+   SECTION 6 — CONFIRMACIÓN (COSMOS)
+============================================================ */
+#confirmacion {
+  padding: 70px 24px 88px;
+  background: linear-gradient(160deg, var(--lp-cream) 0%, #edf6fb 20%, #d6eaf7 50%, #a8ccdf 100%);
+  text-align: center; position: relative; overflow: hidden;
+}
+#confirmacion .eyebrow { color: var(--lp-sky2); }
+#confirmacion .sec-title { color: var(--lp-text); }
+#confirmacion .sec-title em { font-style: italic; color: #7aaec8; }
+
+.confirm-duo {
+  display: flex; flex-direction: column; gap: 10px;
+  max-width: 300px; margin: 0 auto 28px;
+}
+.wa-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+  padding: 14px 32px; border-radius: 50px;
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  color: white; font-family: var(--font-script); font-size: 1.25rem;
+  text-decoration: none;
+  box-shadow: 0 6px 26px rgba(37,211,102,.4);
+  transition: transform .25s, box-shadow .25s;
+}
+.wa-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 10px 36px rgba(37,211,102,.5); }
+.wa-btn svg { width: 20px; height: 20px; fill: white; flex-shrink: 0; }
+
+.quote-final {
+  margin-top: 44px;
+  border-top: 1px solid rgba(201,169,110,.25);
+  padding-top: 28px;
+  font-family: var(--font-script); font-size: 1rem;
+  color: var(--lp-soft); font-style: italic; line-height: 1.75;
+  max-width: 290px; margin-left: auto; margin-right: auto;
+}
+.quote-final strong {
+  display: block; font-family: var(--font-body);
+  font-size: .68rem; text-transform: uppercase; letter-spacing: .14em;
+  color: var(--lp-gold); font-style: normal; font-weight: 400; margin-top: 8px;
+}
+
+/* ============================================================
+   DECORATIVE ELEMENTS REUSABLE
+============================================================ */
+.deco-floating {
+  position: absolute; pointer-events: none;
+  animation: floatY 4s ease-in-out infinite;
+  opacity: .35;
+}
+</style>
+</head>
+<body>
+
+<!-- Fixed UI -->
+<button id="music-btn" onclick="toggleMusic()" title="Música">🎵</button>
+<audio id="bg-music" loop></audio>
+<a id="wa-float" href="https://wa.me/573000000000?text=Hola%2C%20confirmo%20mi%20asistencia" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- ============================================================
+     S1 — PORTADA
+============================================================ -->
+<section id="portada">
+  <div id="portada-cosmos"></div>
+
+  <!-- Star field -->
+  <div class="star-field" id="star-field"></div>
+
+  <!-- Nebula blobs -->
+  <div class="nebula" style="top:5%;left:10%;width:200px;height:200px;background:radial-gradient(circle,rgba(45,27,105,.7),transparent);animation-delay:0s"></div>
+  <div class="nebula" style="top:20%;right:5%;width:160px;height:160px;background:radial-gradient(circle,rgba(30,58,138,.5),transparent);animation-delay:2s"></div>
+  <div class="nebula" style="top:35%;left:25%;width:180px;height:180px;background:radial-gradient(circle,rgba(45,27,105,.4),transparent);animation-delay:1s"></div>
+
+  <!-- Shooting stars -->
+  <div class="shooting" style="top:18%;left:5%;animation-delay:1s;animation-duration:3s"></div>
+  <div class="shooting" style="top:28%;left:20%;animation-delay:4.5s;animation-duration:2.5s;width:40px"></div>
+
+  <!-- Moon -->
+  <div id="moon"></div>
+
+  <!-- Astronaut -->
+  <div id="astronaut">🚀</div>
+
+  <!-- Planet + Prince + Rose -->
+  <div id="portada-planet"></div>
+ 
+  <div id="lp-rose">
+  <img src="img/principito1.png" alt="decoración">
+</div>
+
+  <!-- Rocket -->
+  <div style="position:absolute;top:22%;left:10%;z-index:4;font-size:2rem;animation:rocketFly 3s ease-in-out infinite;transform:rotate(-30deg)">🚀</div>
+
+  <!-- Text content -->
+  <div class="portada-wrap">
+    <div class="portada-badge">✦ Una celebración doble ✦</div>
+    <h1 class="portada-title">
+      Bautizo<br><em class="italic-gold">&amp; Cumpleaños</em>
+    </h1>
+    <div class="portada-name">
+      <div class="portada-name-inner">Jesús Gael<br>
+  <span class="apellido">Vargas Sánchez</span>
+</div>
+
+  <div class="scroll-cue" onclick="document.getElementById('padrinos').scrollIntoView({behavior:'smooth'})">
+    <span>TÓCAME PARA CONOCER MAS</span>
+    <div class="chevron"></div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     S2 — PADRINOS
+============================================================ -->
+<section id="padrinos">
+
+  <div class="stars-lp">
+    <svg style="top:8%;left:9%;width:14px;animation-duration:2.8s" viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+    <svg style="top:15%;right:11%;width:10px;animation-duration:3.4s;animation-delay:.8s" viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+    <svg style="bottom:18%;left:7%;width:11px;animation-duration:2.5s;animation-delay:.4s" viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+    <svg style="bottom:12%;right:8%;width:13px;animation-duration:3.1s;animation-delay:1.1s" viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+  </div>
+
+  <div class="lp-deco" style="top:14%;left:5%;animation-delay:.3s">🌹</div>
+  <div class="lp-deco" style="bottom:16%;right:6%;animation-delay:.9s">🦊</div>
+  <div class="lp-deco" style="top:55%;left:3%;animation-delay:.6s;font-size:1.2rem">✦</div>
+
+  <div style="position:relative;z-index:1">
+    <div class="ornament reveal">
+      <div class="ln warm"></div>
+      <div class="dot warm"></div>
+      <div class="dot warm" style="width:4px;height:4px;opacity:.5"></div>
+      <div class="dot warm"></div>
+      <div class="ln warm r"></div>
+    </div>
+    <span class="eyebrow reveal d1">con amor y gratitud</span>
+    <h2 class="sec-title reveal d2">Nuestros<br><em>Padrinos</em></h2>
+
+    <p class="padrinos-text reveal d2">
+      Con el corazón desbordante de alegría, les contamos que en dos fechas muy especiales celebraremos la vida de nuestro pequeño. Gracias a nuestros padrinos por acompañarnos en esta aventura.
+    </p>
+
+    <div class="padrinos-chips reveal d3">
+      <div class="pchip">
+        <span class="role">Padrino</span>Carlos Eduardo Martínez
+      </div>
+      <div class="pchip">
+        <span class="role">Madrina</span>Ana Sofía Rodríguez
+      </div>
+    </div>
+
+    <div style="margin-top:28px;font-size:1.8rem;opacity:.35;animation:floatY 4s ease-in-out infinite alternate" class="reveal d4">🌟 ✦ 🌟</div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     S3 — LAS DOS FECHAS (DUAL CARDS)
+============================================================ -->
+<section id="fechas">
+
+  <!-- stars background -->
+  <div class="fechas-stars" id="fechas-stars"></div>
+
+  <div style="position:relative;z-index:2">
+    <span class="fechas-eyebrow reveal">dos momentos, una misma alegría</span>
+    <h2 class="fechas-title reveal d1">Guarda estas<br><em>Fechas</em></h2>
+    <span class="fechas-subtitle reveal d2">🕊️ Bautizo · 🚀 Cumpleaños</span>
+
+    <!-- THE TWO CARDS SIDE BY SIDE -->
+    <div class="fechas-duo reveal d3" style="position:relative">
+
+      <!-- BAUTIZO CARD -->
+      <div class="fcard fcard-bautizo">
+        <div class="fc-icon">🕊️</div>
+        <div class="fc-tipo">Bautizo</div>
+        <div class="fc-name">Santiago<br>Tomás</div>
+
+        <div class="fc-dia">Sábado</div>
+        <div class="fc-fecha">20</div>
+        <div class="fc-mes">Diciembre · 2025</div>
+
+        <div class="fc-divider"></div>
+
+        <div class="fc-hora">⏰ 10:00 AM</div>
+        <div class="fc-lugar" style="font-family:var(--font-display);font-size:.82rem;font-weight:600;color:var(--lp-text);margin-bottom:3px">Parroquia San José</div>
+        <div class="fc-lugar">Calle 12 #5-48<br>Centro, Ciudad</div>
+      </div>
+
+      <!-- Connector star -->
+      <div class="fechas-connector">✦</div>
+
+      <!-- CUMPLEAÑOS CARD -->
+      <div class="fcard fcard-cumple">
+        <!-- mini stars -->
+        <div class="card-stars">
+          <span style="width:2px;height:2px;top:12%;left:18%;animation-duration:2.1s"></span>
+          <span style="width:1.5px;height:1.5px;top:20%;right:14%;animation-duration:1.8s;animation-delay:.5s"></span>
+          <span style="width:2px;height:2px;top:65%;left:12%;animation-duration:2.5s;animation-delay:.3s"></span>
+          <span style="width:1px;height:1px;top:80%;right:20%;animation-duration:1.6s;animation-delay:.9s"></span>
+          <span style="width:2px;height:2px;top:45%;left:8%;animation-duration:3s;animation-delay:.2s"></span>
+          <span style="width:1.5px;height:1.5px;top:30%;right:9%;animation-duration:2.3s;animation-delay:.7s"></span>
+        </div>
+
+        <div class="fc-icon">🚀</div>
+        <div class="fc-tipo">Cumpleaños</div>
+        <div class="fc-name">Santiago<br>Tomás</div>
+
+        <div class="fc-dia">Domingo</div>
+        <div class="fc-fecha">21</div>
+        <div class="fc-mes">Diciembre · 2025</div>
+
+        <div class="fc-divider"></div>
+
+        <div class="fc-hora">🌟 4:00 PM</div>
+        <div class="fc-lugar" style="font-family:var(--font-display);font-size:.82rem;font-weight:600;color:rgba(255,255,255,.85);margin-bottom:3px">Salón El Cosmos</div>
+        <div class="fc-lugar">Carrera 8 #23-16<br>Zona Norte, Ciudad</div>
+      </div>
+    </div><!-- / fechas-duo -->
+
+    <!-- COUNTDOWN (to baptism) -->
+    <div class="countdown-strip reveal d4">
+      <div class="cd-item warm">
+        <span class="cd-num" id="cd-d">--</span>
+        <span class="cd-label">Días</span>
+      </div>
+      <div class="cd-item">
+        <span class="cd-num" id="cd-h">--</span>
+        <span class="cd-label">Horas</span>
+      </div>
+      <div class="cd-item">
+        <span class="cd-num" id="cd-m">--</span>
+        <span class="cd-label">Minutos</span>
+      </div>
+      <div class="cd-item">
+        <span class="cd-num" id="cd-s">--</span>
+        <span class="cd-label">Segundos</span>
+      </div>
+    </div>
+    <p class="fechas-note reveal d5">
+  ⏳ Cuenta regresiva al bautizo<br>
+  <span class="fecha-abajo">24 Mayo 2026</span>
+</p>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     S4 — GALERÍA
+============================================================ -->
+<section id="galeria">
+
+  <div style="position:relative;z-index:1">
+    <div class="ornament reveal">
+      <div class="ln cool"></div>
+      <div class="dot cool"></div>
+      <div class="dot cool" style="width:4px;height:4px;opacity:.5"></div>
+      <div class="dot cool"></div>
+      <div class="ln cool r"></div>
+    </div>
+    <span class="eyebrow reveal d1">momentos que atesoramos</span>
+    <h2 class="sec-title reveal d2">Nuestra<br><em>Historia</em></h2>
+
+    <div class="gallery-grid">
+      <div class="gcard card-main reveal d2">
+        <img src="foto1.png" alt="Foto principal" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="img-ph" style="display:none">🌟<span>foto1.png</span></div>
+        <div class="g-overlay"></div>
+      </div>
+      <div class="gcard reveal d3">
+        <img src="foto2.png" alt="Foto 2" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="img-ph" style="display:none">🌹<span>foto2.png</span></div>
+        <div class="g-overlay"></div>
+      </div>
+      <div class="gcard reveal d4">
+        <img src="foto3.png" alt="Foto 3" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="img-ph" style="display:none">🚀<span>foto3.png</span></div>
+        <div class="g-overlay"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     S5 — DETALLES
+============================================================ -->
+<section id="detalles">
+
+  <div style="position:relative;z-index:1">
+    <div class="ornament reveal">
+      <div class="ln warm"></div>
+      <div class="dot warm"></div>
+      <div class="dot warm" style="width:4px;height:4px;opacity:.5"></div>
+      <div class="dot warm"></div>
+      <div class="ln warm r"></div>
+    </div>
+    <span class="eyebrow reveal d1">te esperamos</span>
+    <h2 class="sec-title reveal d2">Detalles de los<br><em>Eventos</em></h2>
+
+    <div class="detalles-grid">
+
+      <!-- Bautizo detail card -->
+      <div class="dcard dcard-lp reveal d2">
+        <div class="dcard-badge">⛪ Ceremonia de Bautizo</div>
+        <div class="dcard-hora">10:00 <em>AM</em></div>
+        <div class="dcard-lugar">Parroquia San José</div>
+        <div class="dcard-dir">Calle 12 #5-48, Centro<br>Tu Ciudad, Colombia</div>
+        <a class="btn-loc" href="https://maps.google.com/?q=Parroquia+San+Jose" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Ver ubicación
+        </a>
+      </div>
+
+      <!-- Recepción bautizo -->
+      <div class="dcard dcard-lp reveal d3">
+        <div class="dcard-badge">🌹 Recepción Bautizo</div>
+        <div class="dcard-hora">1:00 <em>PM</em></div>
+        <div class="dcard-lugar">Salón El Principito</div>
+        <div class="dcard-dir">Carrera 8 #12-34<br>Tu Ciudad, Colombia</div>
+        <a class="btn-loc" href="https://maps.google.com/?q=Salon+El+Principito" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Ver ubicación
+        </a>
+      </div>
+
+      <!-- Cumpleaños detail card -->
+      <div class="dcard dcard-sp reveal d4">
+        <div class="dcard-badge">🚀 Fiesta de Cumpleaños</div>
+        <div class="dcard-hora" style="color:white">4:00 <em>PM</em></div>
+        <div class="dcard-lugar">Salón El Cosmos</div>
+        <div class="dcard-dir">Carrera 8 #23-16<br>Zona Norte, Ciudad</div>
+        <a class="btn-loc" href="https://maps.google.com/?q=Salon+El+Cosmos" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Ver ubicación
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     S6 — CONFIRMACIÓN
+============================================================ -->
+<section id="confirmacion">
+
+  <div class="stars-lp">
+    <svg style="top:8%;left:7%;width:14px;animation-duration:2.6s" fill="#c9a96e" viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+    <svg style="top:14%;right:10%;width:10px;animation-duration:3.2s;animation-delay:.7s" fill="#7aaec8" viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+    <svg style="bottom:20%;left:8%;width:11px;animation-duration:2.9s;animation-delay:.4s" fill="#c9a96e" viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+    <svg style="bottom:14%;right:7%;width:13px;animation-duration:3.5s;animation-delay:1.2s" fill="#7aaec8" viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+  </div>
+
+  <div style="position:relative;z-index:1;text-align:center">
+    <div class="ornament reveal">
+      <div class="ln warm"></div>
+      <div class="dot warm"></div>
+      <div class="dot warm" style="width:4px;height:4px;opacity:.5"></div>
+      <div class="dot warm"></div>
+      <div class="ln warm r"></div>
+    </div>
+
+    <div style="font-size:3.2rem;margin-bottom:14px;animation:floatY 3.5s ease-in-out infinite" class="reveal d1">💌</div>
+    <h2 class="sec-title reveal d2">¿Nos acompañas<br><em>en esta aventura?</em></h2>
+    <p style="font-family:var(--font-body);font-size:1rem;color:var(--lp-soft);line-height:1.7;max-width:290px;margin:0 auto 28px;font-weight:300" class="reveal d2">
+      Tu presencia hace esta historia más especial. Confirma para el bautizo, el cumpleaños, ¡o los dos!
+    </p>
+
+    <div class="confirm-duo reveal d3">
+      <a class="wa-btn" href="https://wa.me/573000000000?text=Hola%2C%20confirmo%20mi%20asistencia%20al%20bautizo%20de%20Santiago%20Tom%C3%A1s%20%F0%9F%95%8A%EF%B8%8F" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        🕊️ Confirmar Bautizo
+      </a>
+      <a class="wa-btn" href="https://wa.me/573000000000?text=Hola%2C%20confirmo%20mi%20asistencia%20al%20cumplea%C3%B1os%20de%20Santiago%20Tom%C3%A1s%20%F0%9F%9A%80" target="_blank" rel="noopener" style="background:linear-gradient(135deg,#3b82f6,#1d4ed8);box-shadow:0 6px 26px rgba(59,130,246,.4)">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        🚀 Confirmar Cumpleaños
+      </a>
+    </div>
+
+    <div class="quote-final reveal d4">
+      "Lo esencial es invisible a los ojos… y hay estrellas en el universo entero esperando conocerte."
+      <strong>— El Principito · Con amor de mamá y papá</strong>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     JS
+============================================================ -->
+<script>
+/* ---- GENERATE STAR FIELD ---- */
+(function() {
+  const field = document.getElementById('star-field');
+  for (let i = 0; i < 120; i++) {
+    const s = document.createElement('div');
+    s.className = 'star-dot';
+    const size = Math.random() * 2.4 + .6;
+    s.style.cssText = `
+      width:${size}px; height:${size}px;
+      top:${Math.random()*65}%;
+      left:${Math.random()*100}%;
+      animation-duration:${(Math.random()*3+1.5).toFixed(1)}s;
+      animation-delay:${(Math.random()*4).toFixed(1)}s;
+    `;
+    field.appendChild(s);
+  }
+})();
+
+/* ---- GENERATE FECHAS STARS ---- */
+(function() {
+  const container = document.getElementById('fechas-stars');
+  for (let i = 0; i < 80; i++) {
+    const s = document.createElement('div');
+    s.className = 'fs';
+    const size = Math.random() * 2 + .5;
+    s.style.cssText = `
+      width:${size}px; height:${size}px;
+      top:${30 + Math.random()*70}%;
+      left:${Math.random()*100}%;
+      animation-duration:${(Math.random()*2.5+1.5).toFixed(1)}s;
+      animation-delay:${(Math.random()*3).toFixed(1)}s;
+    `;
+    container.appendChild(s);
+  }
+})();
+
+/* ---- PARALLAX PORTADA ---- */
+window.addEventListener('scroll', () => {
+  const el = document.getElementById('portada-planet');
+  if (el) el.style.transform = `translateX(-50%) translateY(${window.scrollY * 0.08}px)`;
+}, { passive: true });
+
+/* ---- SCROLL REVEAL ---- */
+const reveals = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(el => obs.observe(el));
+
+/* ---- COUNTDOWN (to baptism Dec 20) ---- */
+function tick() {
+  const target = new Date('2026-05-24T10:00:00');
+  const diff = target - new Date();
+  const pad = n => String(Math.max(0, Math.floor(n))).padStart(2,'0');
+  if (diff <= 0) {
+    ['cd-d','cd-h','cd-m','cd-s'].forEach(id => document.getElementById(id).textContent = '00');
+    return;
+  }
+  document.getElementById('cd-d').textContent = pad(diff / 86400000);
+  document.getElementById('cd-h').textContent = pad((diff % 86400000) / 3600000);
+  document.getElementById('cd-m').textContent = pad((diff % 3600000) / 60000);
+  document.getElementById('cd-s').textContent = pad((diff % 60000) / 1000);
+}
+tick(); setInterval(tick, 1000);
+
+/* ---- MUSIC ---- */
+const music = document.getElementById('bg-music');
+const btn = document.getElementById('music-btn');
+let playing = false;
+function toggleMusic() {
+  if (!music.src || music.src === window.location.href) {
+    btn.style.filter = 'grayscale(1)';
+    setTimeout(() => btn.style.filter = '', 700);
+    return;
+  }
+  playing ? music.pause() : music.play().catch(()=>{});
+  playing = !playing;
+  btn.textContent = playing ? '🔇' : '🎵';
+}
+</script>
+</body>
+</html>
